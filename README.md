@@ -5,9 +5,9 @@ Some Itools fro Instagram
 and basic information of any instagram profile //
 
                          USAGE:-           
-                     python ig.py
+                      python igt.py
 // apexf.py - does the same thing igtf.py does but requires username as
 command line argument //
 
                           USAGE:-
-             python igtf.py <username>             
+                 python igtf.py <username>             
