@@ -3,31 +3,35 @@ import requests
 from bs4 import BeautifulSoup
 import webbrowser as wb
 
-
-username = sys.argv[1]
-
 try:
-    result = requests.get("https://www.instagram.com/" + username)
-    src = result.content
-    soup = BeautifulSoup(src, 'lxml')
-    imglink = soup.find_all('meta', property='og:image')
-    desc = soup.find_all('meta', property='og:description')
+    username = sys.argv[1]
 
-    imglink = (str(imglink[0])[15:])
-    imglink = imglink[:len(imglink) - 23]
-    imglink = imglink.replace("&lt;", "<")
-    imglink = imglink.replace("&gt;", ">")
-    imglink = imglink.replace("&amp;", "&")
+    try:
+        result = requests.get("https://www.instagram.com/" + username)
+        src = result.content
+        soup = BeautifulSoup(src, 'lxml')
+        imglink = soup.find_all('meta', property='og:image')
+        desc = soup.find_all('meta', property='og:description')
 
-    desc = (str(desc[0])[15:])
-    desc = desc.replace('" property="og:description"/>', '')
-    desc = desc.replace('- See Instagram photos and videos from ', '\n')
-    print(desc)
+        imglink = (str(imglink[0])[15:])
+        imglink = imglink[:len(imglink) - 23]
+        imglink = imglink.replace("&lt;", "<")
+        imglink = imglink.replace("&gt;", ">")
+        imglink = imglink.replace("&amp;", "&")
 
-    ip = input("Do you want to view profile picture? y/n ")
-    if ip == "y" or ip == "Y":
-        wb.open_new_tab(imglink)
-    elif ip == "n" or ip == "N":
-        wb.open_new_tab("rb.gy/7dt4n7")
+        desc = (str(desc[0])[15:])
+        desc = desc.replace('" property="og:description"/>', '')
+        desc = desc.replace('- See Instagram photos and videos from ', '\n')
+        print(desc)
+
+        ip = input("Do you want to view profile picture? y/n ")
+        if ip == "y" or ip == "Y":
+            wb.open_new_tab(imglink)
+        elif ip == "n" or ip == "N":
+            wb.open_new_tab("rb.gy/7dt4n7")
+    except:
+        print("Invalid username!")
+
 except:
-     print("Invalid username!")
+    print("Enter username in argument")
+
