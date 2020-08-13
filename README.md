@@ -2,7 +2,7 @@
 Some Itools fro Instagram 
 
 // igt.py - A tool which makes use of Beautiful soup to display profile picture
-and basic information of any instagram profile/
+and basic information of any instagram profile //
 
                          USAGE:-           
                      python ig.py
