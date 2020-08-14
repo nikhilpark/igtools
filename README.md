@@ -6,8 +6,9 @@ and basic information of any instagram profile //
 
 Requirements: bs4 and requests 
 
-pip install bs4
-pip install requests
+        pip install bs4
+        
+        pip install requests
 
                          USAGE:-           
                       python igt.py
